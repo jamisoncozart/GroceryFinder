@@ -1,11 +1,15 @@
 $(document).ready(function() {
   getStores()
-  .then((data) => {
-    console.log(data);
+  .then((stores) => {
+    console.log(stores);
+    let appendString = "";
+    for(let i = 0; i < stores.length; i++) {
+      appendString += `<div class="store"><h3>${stores[i].name}</h3><ul><li>City: ${stores[i].city}</li><li>Hours: ${stores[i].openHour} - ${stores[i].closeHour}</li><li>Delivery: ${stores[i].delivery}</li></ul><p>${stores[i].description}</p></div>`;
+    }
+    $("#stores").html(appendString);
   })
   
   
-  $("#stores").html();
 })
 
 async function getStores() {
