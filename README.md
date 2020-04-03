@@ -7,14 +7,15 @@ API for local grocery stores in your area to find information on store hours, de
 
 ### API Endpoints
 
-STORES
 |Method|Route|Response|
 |:-:|:-:|:-:|:-:|
 | GET | /api/stores | Show all stores with key information for each |
 | POST | /api/stores | Create new store | <-- Requires JSON store object sent in body of request
 | GET | /api/stores/{storeId} | Show all details about specific store |
-| PUT | /api/stores/{storeId} | Edit information on already existing store | <-- Requires JSON store object sent in body of request
+| PUT | /api/stores/{storeId} | Edit information on already existing store |
 | DELETE | /api/stores/{storeId} | Delete a specific store |
+
+_For interactive documentation of API Endpoints, follow the **Installation + Setup** instructions and visit `http://localhost:5000/`_
 
 ## Getting Started
 
@@ -30,6 +31,11 @@ Download the .zip file and extract all files into directory of your choice OR cl
 1. Clone the repository:
     ```
     git clone https://github.com/jamisoncozart/GroceryFinder
+    ```
+
+2. Navigate to the root directory:
+    ```
+    cd GroceryFinder/GroceryFinder
     ```
 
 2. Restore all dependencies:
@@ -48,11 +54,21 @@ Download the .zip file and extract all files into directory of your choice OR cl
     dotnet run
     ```
 
+5. Open the index.html page in your browswer of choice
+    ```
+    cd ..
+    start GroceryFinderFrontEnd/index.html
+    ```
+
 ## Technologies Used
 
 * C#
 * .NET webAPI Framework 2.2
-<!-- * Newtonsoft.Json -->
+* MySQL
+* JavaScript
+* CSS
+* HTML
+* Bootstrap
 * Git
 
 
