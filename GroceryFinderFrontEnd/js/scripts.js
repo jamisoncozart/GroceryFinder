@@ -44,7 +44,7 @@ function createDomString(stores)
 {
   let appendString = "";
   for(let i = 0; i < stores.length; i++) {
-    appendString += `<div class="store card card-default"><div class="card-header"><h4>${stores[i].name}</h4></div><div class="card-body"><ul><li><strong>City:</strong> ${stores[i].city}</li><li><strong>Hours:</strong> ${stores[i].openHour} - ${stores[i].closeHour}</li><li><strong>Delivery:</strong> ${stores[i].delivery}</li></ul><p>${stores[i].description}</p></div></div>`;
+    appendString += `<div class="store card card-default"><div class="card-header"><h4>${stores[i].name}</h4><div class="btnDiv"><button class="btn btn-warning btn-sm" id=${stores[i].StoreId}><strong>Edit</strong></button><button class="btn btn-danger btn-sm" id=${stores[i].StoreId}><strong>X</strong></button></div></div><div class="card-body"><ul><li><strong>City:</strong> ${stores[i].city}</li><li><strong>Hours:</strong> ${stores[i].openHour} - ${stores[i].closeHour}</li><li><strong>Delivery:</strong> ${stores[i].delivery}</li></ul><p>${stores[i].description}</p></div></div>`;
   }
   return appendString;
 }
