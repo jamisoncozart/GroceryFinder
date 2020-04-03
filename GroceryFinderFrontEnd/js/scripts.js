@@ -4,7 +4,7 @@ $(document).ready(function() {
   getStores(null)
   .then((stores) => {
     storesDiv.html(createDomString(stores));
-  })
+  });
   $("#searchButton").click(function(event) {
     event.preventDefault();
     let searchParam = searchField.val();
@@ -12,10 +12,9 @@ $(document).ready(function() {
     getStores(searchParam)
     .then(stores => {
       storesDiv.html(createDomString(stores));
-    })
-  })
-  
-})
+    });
+  });
+});
 
 async function getStores(searchParam) {
   try {
