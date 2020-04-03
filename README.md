@@ -8,7 +8,7 @@ API for local grocery stores in your area to find information on store hours, de
 ### API Endpoints
 
 |Method|Route|Response|
-|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | GET | /api/stores | Show all stores with key information for each |
 | POST | /api/stores | Create new store | <-- Requires JSON store object sent in body of request
 | GET | /api/stores/{storeId} | Show all details about specific store |
