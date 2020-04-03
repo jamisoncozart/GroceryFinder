@@ -21,9 +21,23 @@ namespace GroceryFinder.Controllers
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Store>> Get()
+        public ActionResult<IEnumerable<Store>> Get(string name, string city, string openHour)
         {
-            return _db.Stores.ToList();
+            var query = _db.Stores.AsQueryable();
+            if(name != null)
+            {
+                query = query.Where(entry => entry.Name.ToLower() == name.ToLower());
+            }
+            if(city != null)
+            {
+                query = query.Where(entry => entry.City.ToLower() == city.ToLower());
+            }
+            if(openHour != null)
+            {
+                int checkHour = int.Parse(openHour);
+                query = query.Where(entry => (entry.OpenHour <= checkHour && entry.CloseHour > checkHour));
+            }
+            return query.ToList();
         }
 
         [HttpPost]
