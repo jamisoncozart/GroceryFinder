@@ -1,0 +1,25 @@
+h1 {
+  margin-top: 1rem;
+}
+
+.store {
+  margin: 1rem 0;
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input {
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+}
+
+#searchButton {
+  margin-bottom: 5px;
+}
