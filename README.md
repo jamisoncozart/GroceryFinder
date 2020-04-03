@@ -5,22 +5,16 @@ API for local grocery stores in your area to find information on store hours, de
 
 ## Specifications 
 
-### user stories:
-
-|Behavior|Input|Output|
-|:-:|:-:|:-:|
-||||
-
 ### API Endpoints
 
 STORES
-```
-GET /api/stores
-POST /api/stores
-GET /api/stores/{storeId}
-PUT /api/stores/{storeId}
-DELETE /api/stores/{storeId}
-```
+|Method|Route|Response|
+|:-:|:-:|:-:|:-:|
+| GET | /api/stores | Show all stores with key information for each |
+| POST | /api/stores | Create new store | <-- Requires JSON store object sent in body of request
+| GET | /api/stores/{storeId} | Show all details about specific store |
+| PUT | /api/stores/{storeId} | Edit information on already existing store | <-- Requires JSON store object sent in body of request
+| DELETE | /api/stores/{storeId} | Delete a specific store |
 
 ## Getting Started
 
