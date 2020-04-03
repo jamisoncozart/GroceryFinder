@@ -23,7 +23,7 @@ namespace GroceryFinder
             Configuration = configuration;
         }
 
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        // readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -63,7 +63,11 @@ namespace GroceryFinder
                 app.UseHsts();
             }
 
-            app.UseCors(MyAllowSpecificOrigins); 
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()); 
 
             // app.UseHttpsRedirection();
             app.UseMvc();
