@@ -2,14 +2,16 @@
 using GroceryFinder.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GroceryFinder.Migrations
 {
     [DbContext(typeof(GroceryFinderContext))]
-    partial class GroceryFinderContextModelSnapshot : ModelSnapshot
+    [Migration("20200403232243_UpdateTimes")]
+    partial class UpdateTimes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -14,7 +14,16 @@ h1 {
   justify-content: space-between;
 }
 
-input {
+#documentationButton {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar {
+  padding-top: 5px;
+}
+
+#searchParam {
   height: 38px;
   margin: 0;
   padding: 0 10px;
@@ -42,4 +51,8 @@ button.btn-warning {
 
 #edit {
   display: none;
+}
+
+#addStoreButton {
+  margin-top: 1rem;
 }

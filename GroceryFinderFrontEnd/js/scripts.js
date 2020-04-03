@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
   });
 
-  $("#stores").on("click", ".editButton", function() {
+  storesDiv.on("click", ".editButton", function() {
     let storeId = $(this).attr("id");
     storeToEdit = storeId;
     $("#stores").hide();
@@ -41,6 +41,13 @@ $(document).ready(function() {
       location.reload();
     });
   });
+
+  storesDiv.on("click", ".deleteButton", function() {
+    deleteStore($(this).attr("id"))
+    .then( () => {
+      location.reload();
+    })
+  })
 });
 
 //make request to get all stores from API
@@ -92,11 +99,34 @@ async function editStore(jsonBody, storeId)
   }
 }
 
+//make delete request to api to delete specific store
+async function deleteStore(storeId)
+{
+  try {
+    let response = await fetch(`http://localhost:5000/api/stores/${storeId}`, {
+      method: "DELETE"
+      // headers: {
+      //   "Accept": "application/json",
+      //   "Content-Type": "application/json"
+      // }
+    });
+    if(response.ok && response.status == 200) {
+      let jsonifiedResponse = await response.json();
+      return jsonifiedResponse;
+    } else {
+      throw Error("Error: Put request to API failed. Please try again");
+    }
+  }
+  catch(error) {
+    return error.message;
+  }
+}
+
 function createDomString(stores)
 {
   let appendString = "";
   for(let i = 0; i < stores.length; i++) {
-    appendString += `<div class="store card card-default"><div class="card-header"><h4>${stores[i].name}</h4><div class="btnDiv"><button class="editButton btn btn-warning btn-sm" id=${stores[i].storeId}><strong>Edit</strong></button><button class="deleteButton btn btn-danger btn-sm" id=${stores[i].storeId}><strong>X</strong></button></div></div><div class="card-body"><ul><li><strong>City:</strong> ${stores[i].city}</li><li><strong>Hours:</strong> ${stores[i].openHour} - ${stores[i].closeHour}</li><li><strong>Delivery:</strong> ${stores[i].delivery}</li></ul><p>${stores[i].description}</p></div></div>`;
+    appendString += `<div class="store card card-default"><div class="card-header"><h4>${stores[i].name}</h4><div class="btnDiv"><button class="editButton btn btn-warning btn-sm" id=${stores[i].storeId}><strong>Edit</strong></button><button class="deleteButton btn btn-danger btn-sm" id=${stores[i].storeId}><strong>X</strong></button></div></div><div class="card-body"><ul><li><strong>City:</strong> ${stores[i].city}</li><li><strong>Hours:</strong> ${stores[i].openHour}am - ${stores[i].closeHour}pm</li><li><strong>Delivery:</strong> ${stores[i].delivery}</li></ul><p>${stores[i].description}</p></div></div>`;
   }
   return appendString;
 }
