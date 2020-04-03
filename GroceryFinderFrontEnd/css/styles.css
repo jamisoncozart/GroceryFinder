@@ -39,3 +39,7 @@ button.btn-warning {
   flex-direction: row;
   justify-content: space-between;
 }
+
+#edit {
+  display: none;
+}
