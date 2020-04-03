@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GroceryFinder.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GroceryFinder.Controllers
 {
@@ -32,7 +33,29 @@ namespace GroceryFinder.Controllers
             _db.SaveChanges();
         }
 
-        
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public Store Get(int id)
+        {
+            Store thisStore = _db.Stores.FirstOrDefault(store => store.StoreId == id);
+            return thisStore;
+        }
+
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] Store store)
+        {
+            store.StoreId = id;
+            _db.Entry(store).State = EntityState.Modified;
+            _db.SaveChanges();
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            Store thisStore = _db.Stores.FirstOrDefault(store => store.StoreId == id);
+            _db.Stores.Remove(thisStore);
+            _db.SaveChanges();
+        }
 
         // // POST api/values
         // [HttpPost]
