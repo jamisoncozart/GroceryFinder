@@ -1,6 +1,8 @@
 # Grocery Finder
 ### By **Jamison Cozart**  April 3rd 2020
 
+**C# .NET core Web API backend with JavaScript Front-End**
+
 API for local grocery stores in your area to find information on store hours, delivery details, and other essential information for retrieving your necessities.
 
 ## Specifications 
@@ -15,6 +17,7 @@ API for local grocery stores in your area to find information on store hours, de
 | PUT | /api/stores/{storeId} | Edit information on already existing store |
 | DELETE | /api/stores/{storeId} | Delete a specific store |
 
+#### Swagger and NSwag were used to auto-generate API Endpoint documentation for ease of use
 _For interactive documentation of API Endpoints, follow the **Installation + Setup** instructions and visit `http://localhost:5000/`_
 
 ## Getting Started
@@ -109,6 +112,7 @@ Download the .zip file and extract all files into directory of your choice OR cl
 * Entity Framework Core 2.2
 * MySQL + MySQL Workbench version 8.0.15
 * JavaScript
+* Swagger + NSwag
 * CSS
 * HTML
 * Bootstrap
