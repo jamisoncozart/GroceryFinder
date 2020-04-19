@@ -3,6 +3,8 @@
 
 **C# .NET core Web API backend with JavaScript Front-End**
 
+![Screenshot of UI](https://i.imgur.com/STLF3yf.png)
+
 API for local grocery stores in your area to find information on store hours, delivery details, and other essential information for retrieving your necessities.
 
 ## Specifications 
